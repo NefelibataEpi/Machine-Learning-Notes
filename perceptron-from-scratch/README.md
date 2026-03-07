@@ -121,7 +121,8 @@ This animation shows how the decision boundary gradually moves until it separate
 # Example output
 
 ```
-Learned w = [5. 1.]
-Learned b = -13.0
+Learned w = [-0.47 6.94]
+Learned b = -17.0
+Updates = 37
 Train acc = 1.0
 ```
