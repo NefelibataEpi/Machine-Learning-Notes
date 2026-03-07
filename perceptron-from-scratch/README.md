@@ -85,15 +85,36 @@ Labels:
 - `+1` = spam
 - `-1` = ham (normal email)
 
+The dataset is randomly generated using Gaussian distributions
+
+Example intuition:
+
+Spam emails usually contain:
+
+- more links
+- more capitalized words
+
 ---
 
 # Training Result
 
-After training, the perceptron learns a decision boundary that separates spam from normal emails.
-
-Example decision boundary:
+Example decision boundary learned by the Perceptron:
 
 <img src="results/decision_boundary.png" alt="Decision Boundary" style="zoom:50%;" />
+
+The classifier successfully separated the two classes.
+
+---
+
+# Training Process Visualization
+
+The training process can also be visualized as an animation.
+
+Each frame represents one updates of the Perceptron parameters.
+
+<img src="results/perceptron_training.gif" alt="Decision Boundary" style="zoom:50%;" />
+
+This animation shows how the decision boundary gradually moves until it separates the data.
 
 ---
 
