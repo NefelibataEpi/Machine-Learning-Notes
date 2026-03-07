@@ -2,7 +2,7 @@
 
 This project implements the **Perceptron algorithm from scratch** using Python and Numpy.
 
-The implementation is inspired by the **Perceptron algorithm taught in MIT 6.036**.
+The implementation is inspired by the Perceptron algorithm taught in **MIT 6.036 - Introduction to Machine Learning**.
 
 ---
 
@@ -23,8 +23,11 @@ Where:
 - `b` = bias
 - `x` = feature vector
 
-If $w \cdot x + b > 0$, the prediction is **+1**.
-Otherwise the prediction is **-1**.
+Prediction rule:
+
+- if $w \cdot x + b > 0$ $\to$ class +1
+- if $w \cdot x + b \leq 0$ $\to$ class -1
+
 
 ---
 
@@ -41,6 +44,11 @@ $$
 
 This moves the decision boundary toward the correct classification.
 
+The algorithm keeps updating until:
+
+- all samples are correctly classified, or
+- a maximum number of epochs is reached
+
 ---
 
 # Project Structure
@@ -49,21 +57,23 @@ This moves the decision boundary toward the correct classification.
 perceptron-from-scratch
 │
 ├── src
-│ ├── perceptron.py # Perceptron implementation
-│ ├── dataset.py # Toy spam dataset generator
-│ └── visualization.py # Decision boundary plotting
+│ ├── perceptron.py     # Perceptron implementation
+│ ├── dataset.py        # Synthetic spam dataset generator
+│ └── visualization.py  # Decision boundary & training GIF
 │
 ├── results
 │ └── decision_boundary.png
+│ └── perceptron_training.gif
 │
-└── train.py # Training script
+└── train.py            # Training script
+└── README.md
 ```
 
 ---
 
 # Dataset
 
-This project uses a **toy spam detection dataset**.
+This project uses a **synthetic spam detection dataset**.
 
 Each email is represented by two features:
 

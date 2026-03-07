@@ -12,10 +12,10 @@ sys.path.append(SRC_DIR)
 
 from perceptron import Perceptron
 from dataset import make_toy_spam_dataset
-from visualization import plot_decision_boundary
+from visualization import plot_decision_boundary, save_training_gif
 
 if __name__ == "__main__":
-    X, y = make_toy_spam_dataset()
+    X, y = make_toy_spam_dataset(n=100, seed=0)
 
     model = Perceptron().fit(X, y, epochs=50)
 
@@ -36,7 +36,12 @@ if __name__ == "__main__":
         label = "SPAM" if p == 1 else "HAM"
         print(f" x={x} -> {label}")
 
-    save_path = os.path.join(RESULTS_DIR, "decision_boundary.png")
-    plot_decision_boundary(X, y, model.w, model.b, save_path=save_path)
+    # Save final decision boundary image
+    image_path = os.path.join(RESULTS_DIR, "decision_boundary.png")
+    plot_decision_boundary(X, y, model.w, model.b, save_path=image_path)
+    print(f"\nFigure saved to: {image_path}")
 
-    print(f"\nFigure saved to: {save_path}")
+    # Save training GIF
+    gif_path = os.path.join(RESULTS_DIR, "perceptron_training.png")
+    save_training_gif(X, y, model.history, gif_path=gif_path, duration=2.0)
+    print(f"Training GIF saved to: {gif_path}")

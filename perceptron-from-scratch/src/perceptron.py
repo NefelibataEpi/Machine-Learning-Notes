@@ -6,6 +6,7 @@ class Perceptron:
 
     Decision rule:
         sign(w*x + b)
+
     Update rule:
         w = w + y * x
         b = b + y
@@ -16,6 +17,9 @@ class Perceptron:
         self.b: float = 0.0
         self.updates: int = 0
 
+        # Store training history for visualization
+        self.history: list[tuple[np.ndarray, float]] = []
+
     def fit(self, X: np.ndarray, y: np.ndarray, epochs: int = 20) -> "Perceptron":
         X = np.asarray(X, dtype=float)
         y = np.asarray(y, dtype=int)
@@ -24,16 +28,22 @@ class Perceptron:
         self.w = np.zeros(d, dtype=float)
         self.b = 0.0
         self.updates = 0
+        self.history = [(self.w.copy(), self.b)]    # initial state
 
         for epoch in range(epochs):
             changed = False
+
             for i in range(n):
                 margin = y[i] * (np.dot(self.w, X[i]) + self.b)
+
                 if margin <= 0:
                     self.w = self.w + y[i] * X[i]
                     self.b = self.b + y[i]
                     self.updates += 1
                     changed = True
+
+                    # Save each updated state
+                    self.history.append((self.w.copy(), self.b))
             
             if not changed:
                 break
