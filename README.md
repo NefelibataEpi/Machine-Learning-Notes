@@ -10,10 +10,7 @@ This repository documents my machine learning study journey (mainly following MI
 Machine-Learning-Notes
 │
 ├── perceptron-from-scratch
-│   ├── src
-│   ├── results
-│   ├── train.py
-│   └── README.md
+├── logistic-regression-breast-cancer
 │
 └── README.md
 ```
@@ -30,10 +27,10 @@ Implementation of the **Perceptron algorithm** using Python and Numpy.
 
 Features:
 
-- binary linear classifier implementation
-- synthetic dataset generation
-- decision boundary visualization
-- training process animation
+* binary linear classifier implementation
+* synthetic dataset generation
+* decision boundary visualization
+* training process animation
 
 Example decision boundary:
 
@@ -47,14 +44,34 @@ More details:
 
 $\to$ **[Perceptron Project](perceptron-from-scratch)**
 
+### <u>2. Logistic Regression - Breast Cancer Classification</u>
+
+Implementation of a **Logistic Regression model** using Python and scikit-learn on the Breast Cancer Wisconsin dataset.
+
+Features:
+
+* binary classification (malignant vs benign tumors)
+* train/test split with proper evaluation pipeline
+* feature standardization using StandardScaler
+* model evaluation (accuracy, confusion matrix, precision, recall, F1-score)
+* probability prediction using sigmoid (predict_proba)
+* feature importance analysis via model coefficients
+* visualization of confusion matrix and feature importance
+
+Example confusion matrix:
+
+<img src="./logistic-regression-breast-cancer/images/confusion_matrix.png" alt="confusion_matrix" style="zoom:50%;" />
+
+More details:
+
+$\to$ **[Logistic Regression Project](logistic-regression-breast-cancer)**
+
+
 ---
 
 ## Tools
 
 - Python
-	- Numpy
-	- Matplotlib
-	- Imageio
 - VS code
 - Git & GitHub
 
